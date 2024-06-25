@@ -1,0 +1,3 @@
+# print multiplication table
+
+print
