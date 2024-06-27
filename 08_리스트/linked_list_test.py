@@ -24,3 +24,8 @@ while True:
 
   if menu == Menu.머리에노드삽입: #맨 앞에 노드를 삽입
     lst.add_first(int(input('머리 노드에 넣을 값을 입력하세요: ')))
+  elif menu == Menu.꼬리에노드삽입: #맨 끝에 노드를 삽입
+    lst.add_last(int(input('꼬리 노드에 넣을 값을 입력하세요: ')))
+  elif menu == Menu.머리노드삭제: #맨 앞에 노드를 삭제
+    lst.remove_first()
+  elif menu == Menu.꼬리노드삭제: #맨 끝에 노드를 삭제
