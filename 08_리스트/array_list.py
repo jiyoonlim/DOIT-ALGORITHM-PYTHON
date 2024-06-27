@@ -137,3 +137,65 @@ class ArrayLinkedList:
         self.current = ptr
         self.no -= 1
 
+  def remove_current_node(self) -> None:
+    """주목 노드를 삭제"""
+    self.remove(self.current)
+
+  def clear(self) -> None:
+    """모든 노드를 삭제"""
+    while self.head != Null: # 리스트 전체가 빌 때까지
+      self.remove_first() # 머리 노드를 삭제
+    self.current = Null
+
+  def next(self) -> bool:
+    """주목 노드를 한 칸 뒤로 이동"""
+    if self.current == Null or self.n[self.current].next == Null:
+      return False # 이동할 수 없음
+    self.current = self.n[self.current].next
+    return True
+  
+  def print_current_node(self) -> None:
+    """주목 노드를 출력"""
+    if self.current == Null:
+      print('주목 노드가 없습니다')
+    else:
+      print(self.n[self.current].data)
+
+  def print(self) -> None:
+    """모든 노드를 출력"""
+    ptr = self.head
+
+    while ptr != Null:
+      print(self.n[ptr].data)
+      ptr = self.n[ptr].next
+
+  def dump(self) -> None:
+    """배열을 덤프"""
+    for i in self.n:
+      print(f'[{i}] {i.data} {i.next} {i.dnext}]')
+  
+  def __iter__(self) -> ArrayLinkedListIterator:
+    """이터레이터를 반환"""
+    return ArrayLinkedListIterator(self.n, self.head)
+  
+
+class ArrayLinkedListIterator:
+  """클래스 ArrayLinkedList의 이터레이터용 클래스"""
+
+  def __init__(self, n:int, head:int):
+    self.n = n
+    self.current = head
+
+  def __iter__(self) -> ArrayLinkedListIterator:
+    return self
+  
+  def __next__(self) -> Any:
+    if self.current == Null:
+      raise StopIteration
+    else:
+      data = self.n[self.current].data
+      self.current = self.n[self.current].next
+      return data
+
+
+  
