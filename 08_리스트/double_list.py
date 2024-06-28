@@ -119,6 +119,19 @@ class DoubleLinkedList:
     self.current = self.head.next # 머리 노드 head.next 삭제
     self.remove_current_node()
 
-  
+  def remove_last(self) -> None:
+    """꼬리 노드 삭제"""  
+    self.current = self.head.prev # 꼬리 노드 head.prev를 삭제
+    self.remove_current_node()
+
+  def clear(self) -> None:
+    """모든 노드를 삭제"""
+    while not self.is_empty(): # 리스트 전체가 빌 때까지
+      self.remove_first() # 머리 노드를 삭제
+    self.no = 0
+
+  def __iter__(self) -> DoubleLinkedListIterator:
+    """이터레이터를 반환"""
+    return DoubleLinkedListIterator(self.head)
 
   
