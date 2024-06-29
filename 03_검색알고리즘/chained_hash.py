@@ -50,3 +50,7 @@ class ChainedHash:
     temp = Node(key, value, self.table[hash])
     self.table[hash] = temp #노드를 추가
     return True             #추가 성공
+  
+  def remove(self, key:Any) -> bool:
+    """키가 key인 원소를 삭제"""
+    hash = self.hash_value(key)
