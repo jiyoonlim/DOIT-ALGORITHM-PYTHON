@@ -21,7 +21,7 @@ class Stack:
     return not self.__stk
   
   def is_full(self) -> bool:
-    """tㅡ택이 가득 차 있는지 판단"""
+    """스택이 가득 차 있는지 판단"""
     return len(self.__stk) == self.__stk.maxlen
   
   def push(self, value:Any) -> None:
