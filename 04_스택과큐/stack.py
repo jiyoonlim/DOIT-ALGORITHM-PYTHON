@@ -44,9 +44,8 @@ class Stack:
     """스택에서 value를 찾아 인덱스를 반환(찾지 못하면 -1를 반환)"""
     try:
       return self.__stk.index(value)
-    except:
-      ValueError:
-      return -1
+    except ValueError:
+        return -1
     
   def count(self, value:Any) -> int:
     """스택에 포함되어 있는 value의 개수를 반환"""
