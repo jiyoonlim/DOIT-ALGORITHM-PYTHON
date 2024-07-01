@@ -61,4 +61,5 @@ class OpenHash:
       p = self.table[hash]
     return None
   
-  
+  def search(self, key:Any) -> Any:
+
