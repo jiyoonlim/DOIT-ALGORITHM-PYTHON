@@ -51,4 +51,14 @@ class OpenHash:
     """키가 key인 버킷을 검색"""
     hash = self.hash_value(key) #검색하는 키의 해시값
     p = self.table[hash] # 버킷을 주목
-    
+
+    for i in range(self.capacity):
+      if p.stat == Status.EMPTY:
+        break
+      elif p.stat == Status.OCCUPIED and p.key == key:
+        return p
+      hash = self.rehash_value(hash) #재해시
+      p = self.table[hash]
+    return None
+  
+  
